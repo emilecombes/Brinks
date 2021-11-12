@@ -1,7 +1,8 @@
 import java.util.List;
 
 public class Input {
-    int capacity, cost_fuel_minute, cost_wage_minute;
+    int capacity;
+    float cost_fuel_minute, cost_wage_minute;
     List<Depot> depots;
     List<DynamicCustomer> dynamic_customers;
     List<StaticCustomer> fixed_customers;
