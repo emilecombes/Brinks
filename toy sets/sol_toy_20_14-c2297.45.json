@@ -1,0 +1,247 @@
+{
+    "cost": 2297.45,
+    "instance_name": "toy_20_14",
+    "periods": [
+        {
+            "cost": 0.0,
+            "id": 0,
+            "routes": []
+        },
+        {
+            "cost": 0.0,
+            "id": 1,
+            "routes": [
+                {
+                    "departure_time": 148,
+                    "visits": [
+                        0,
+                        13,
+                        4,
+                        21,
+                        20,
+                        10,
+                        3
+                    ]
+                },
+                {
+                    "departure_time": 90,
+                    "visits": [
+                        0,
+                        14,
+                        19,
+                        16,
+                        2
+                    ]
+                },
+                {
+                    "departure_time": 411,
+                    "visits": [
+                        0,
+                        6,
+                        12,
+                        8,
+                        9,
+                        17
+                    ]
+                }
+            ]
+        },
+        {
+            "cost": 0.0,
+            "id": 2,
+            "routes": [
+                {
+                    "departure_time": 146,
+                    "visits": [
+                        0,
+                        4,
+                        7,
+                        18,
+                        15,
+                        11
+                    ]
+                }
+            ]
+        },
+        {
+            "cost": 0.0,
+            "id": 3,
+            "routes": [
+                {
+                    "departure_time": 86,
+                    "visits": [
+                        0,
+                        4,
+                        8,
+                        5,
+                        2
+                    ]
+                }
+            ]
+        },
+        {
+            "cost": 0.0,
+            "id": 4,
+            "routes": [
+                {
+                    "departure_time": 358,
+                    "visits": [
+                        1,
+                        4,
+                        8
+                    ]
+                }
+            ]
+        },
+        {
+            "cost": 0.0,
+            "id": 5,
+            "routes": [
+                {
+                    "departure_time": 400,
+                    "visits": [
+                        0,
+                        8,
+                        4,
+                        12,
+                        5,
+                        2
+                    ]
+                },
+                {
+                    "departure_time": 416,
+                    "visits": [
+                        0,
+                        17,
+                        13,
+                        3,
+                        10,
+                        20,
+                        15
+                    ]
+                }
+            ]
+        },
+        {
+            "cost": 0.0,
+            "id": 6,
+            "routes": []
+        },
+        {
+            "cost": 0.0,
+            "id": 7,
+            "routes": []
+        },
+        {
+            "cost": 0.0,
+            "id": 8,
+            "routes": [
+                {
+                    "departure_time": 396,
+                    "visits": [
+                        0,
+                        3,
+                        4,
+                        11,
+                        15,
+                        18
+                    ]
+                },
+                {
+                    "departure_time": 90,
+                    "visits": [
+                        0,
+                        14,
+                        2,
+                        16,
+                        19,
+                        12,
+                        6,
+                        8
+                    ]
+                }
+            ]
+        },
+        {
+            "cost": 0.0,
+            "id": 9,
+            "routes": [
+                {
+                    "departure_time": 211,
+                    "visits": [
+                        0,
+                        17,
+                        9,
+                        4,
+                        7,
+                        21,
+                        20,
+                        10
+                    ]
+                }
+            ]
+        },
+        {
+            "cost": 0.0,
+            "id": 10,
+            "routes": [
+                {
+                    "departure_time": 97,
+                    "visits": [
+                        0,
+                        13,
+                        4,
+                        8,
+                        5,
+                        2
+                    ]
+                }
+            ]
+        },
+        {
+            "cost": 0.0,
+            "id": 11,
+            "routes": [
+                {
+                    "departure_time": 340,
+                    "visits": [
+                        1,
+                        17,
+                        4,
+                        8
+                    ]
+                }
+            ]
+        },
+        {
+            "cost": 0.0,
+            "id": 12,
+            "routes": [
+                {
+                    "departure_time": 345,
+                    "visits": [
+                        0,
+                        8,
+                        4,
+                        12,
+                        5,
+                        2
+                    ]
+                },
+                {
+                    "departure_time": 459,
+                    "visits": [
+                        0,
+                        3,
+                        15
+                    ]
+                }
+            ]
+        },
+        {
+            "cost": 0.0,
+            "id": 13,
+            "routes": []
+        }
+    ]
+}

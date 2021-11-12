@@ -1,0 +1,619 @@
+{
+    "capacity": 68,
+    "cost_fuel_minute": 0.25,
+    "cost_wage_minute": 0.3,
+    "depots": [
+        {
+            "coords": {
+                "lat": 50.869779,
+                "lon": 4.27436
+            },
+            "id": 0,
+            "time_windows": [
+                {
+                    "early": 0,
+                    "late": 0
+                },
+                {
+                    "early": 0,
+                    "late": 960
+                },
+                {
+                    "early": 0,
+                    "late": 960
+                },
+                {
+                    "early": 0,
+                    "late": 960
+                },
+                {
+                    "early": 0,
+                    "late": 960
+                },
+                {
+                    "early": 0,
+                    "late": 960
+                },
+                {
+                    "early": 0,
+                    "late": 0
+                }
+            ]
+        }
+    ],
+    "dynamic_customers": [
+        {
+            "coords": {
+                "lat": 50.74858,
+                "lon": 3.21799
+            },
+            "demand": 3,
+            "dur": 18,
+            "dyn_fvisit": 2,
+            "dyn_nvisit": 3,
+            "id": 5,
+            "time_windows": [
+                {
+                    "early": 0,
+                    "late": 0
+                },
+                {
+                    "early": 600,
+                    "late": 840
+                },
+                {
+                    "early": 120,
+                    "late": 420
+                },
+                {
+                    "early": 420,
+                    "late": 660
+                },
+                {
+                    "early": 120,
+                    "late": 420
+                },
+                {
+                    "early": 600,
+                    "late": 840
+                },
+                {
+                    "early": 0,
+                    "late": 0
+                }
+            ]
+        },
+        {
+            "coords": {
+                "lat": 50.46243,
+                "lon": 3.94158
+            },
+            "demand": 5,
+            "dur": 28,
+            "dyn_fvisit": 2,
+            "dyn_nvisit": 5,
+            "id": 6,
+            "time_windows": [
+                {
+                    "early": 0,
+                    "late": 0
+                },
+                {
+                    "early": 120,
+                    "late": 420
+                },
+                {
+                    "early": 120,
+                    "late": 660
+                },
+                {
+                    "early": 600,
+                    "late": 840
+                },
+                {
+                    "early": 120,
+                    "late": 660
+                },
+                {
+                    "early": 120,
+                    "late": 420
+                },
+                {
+                    "early": 0,
+                    "late": 0
+                }
+            ]
+        },
+        {
+            "coords": {
+                "lat": 50.26165,
+                "lon": 4.90815
+            },
+            "demand": 4,
+            "dur": 21,
+            "dyn_fvisit": 2,
+            "dyn_nvisit": 3,
+            "id": 7,
+            "time_windows": [
+                {
+                    "early": 0,
+                    "late": 0
+                },
+                {
+                    "early": 600,
+                    "late": 840
+                },
+                {
+                    "early": 420,
+                    "late": 660
+                },
+                {
+                    "early": 120,
+                    "late": 420
+                },
+                {
+                    "early": 600,
+                    "late": 840
+                },
+                {
+                    "early": 120,
+                    "late": 660
+                },
+                {
+                    "early": 0,
+                    "late": 0
+                }
+            ]
+        },
+        {
+            "coords": {
+                "lat": 50.73641,
+                "lon": 4.23113
+            },
+            "demand": 1,
+            "dur": 10,
+            "dyn_fvisit": 2,
+            "dyn_nvisit": 3,
+            "id": 8,
+            "time_windows": [
+                {
+                    "early": 0,
+                    "late": 0
+                },
+                {
+                    "early": 120,
+                    "late": 420
+                },
+                {
+                    "early": 120,
+                    "late": 660
+                },
+                {
+                    "early": 600,
+                    "late": 840
+                },
+                {
+                    "early": 120,
+                    "late": 660
+                },
+                {
+                    "early": 120,
+                    "late": 420
+                },
+                {
+                    "early": 0,
+                    "late": 0
+                }
+            ]
+        },
+        {
+            "coords": {
+                "lat": 50.81399,
+                "lon": 4.34795
+            },
+            "demand": 3,
+            "dur": 16,
+            "dyn_fvisit": 3,
+            "dyn_nvisit": 3,
+            "id": 9,
+            "time_windows": [
+                {
+                    "early": 0,
+                    "late": 0
+                },
+                {
+                    "early": 600,
+                    "late": 840
+                },
+                {
+                    "early": 120,
+                    "late": 420
+                },
+                {
+                    "early": 120,
+                    "late": 660
+                },
+                {
+                    "early": 600,
+                    "late": 840
+                },
+                {
+                    "early": 600,
+                    "late": 840
+                },
+                {
+                    "early": 0,
+                    "late": 0
+                }
+            ]
+        },
+        {
+            "coords": {
+                "lat": 50.87993,
+                "lon": 4.70751
+            },
+            "demand": 3,
+            "dur": 17,
+            "dyn_fvisit": 3,
+            "dyn_nvisit": 4,
+            "id": 10,
+            "time_windows": [
+                {
+                    "early": 0,
+                    "late": 0
+                },
+                {
+                    "early": 420,
+                    "late": 660
+                },
+                {
+                    "early": 600,
+                    "late": 840
+                },
+                {
+                    "early": 420,
+                    "late": 660
+                },
+                {
+                    "early": 600,
+                    "late": 840
+                },
+                {
+                    "early": 120,
+                    "late": 660
+                },
+                {
+                    "early": 0,
+                    "late": 0
+                }
+            ]
+        }
+    ],
+    "fixed_customers": [
+        {
+            "coords": {
+                "lat": 50.77864,
+                "lon": 4.24365
+            },
+            "demand": 6,
+            "dur": 32,
+            "fixed_pattern": [
+                1,
+                3,
+                5
+            ],
+            "id": 1,
+            "time_windows": [
+                {
+                    "early": 0,
+                    "late": 0
+                },
+                {
+                    "early": 600,
+                    "late": 840
+                },
+                {
+                    "early": 120,
+                    "late": 660
+                },
+                {
+                    "early": 120,
+                    "late": 660
+                },
+                {
+                    "early": 420,
+                    "late": 660
+                },
+                {
+                    "early": 120,
+                    "late": 660
+                },
+                {
+                    "early": 0,
+                    "late": 0
+                }
+            ]
+        },
+        {
+            "coords": {
+                "lat": 50.87684,
+                "lon": 3.81662
+            },
+            "demand": 1,
+            "dur": 7,
+            "fixed_pattern": [
+                1,
+                3,
+                5
+            ],
+            "id": 2,
+            "time_windows": [
+                {
+                    "early": 0,
+                    "late": 0
+                },
+                {
+                    "early": 420,
+                    "late": 660
+                },
+                {
+                    "early": 120,
+                    "late": 660
+                },
+                {
+                    "early": 120,
+                    "late": 660
+                },
+                {
+                    "early": 600,
+                    "late": 840
+                },
+                {
+                    "early": 600,
+                    "late": 840
+                },
+                {
+                    "early": 0,
+                    "late": 0
+                }
+            ]
+        },
+        {
+            "coords": {
+                "lat": 50.99171,
+                "lon": 4.4936
+            },
+            "demand": 4,
+            "dur": 25,
+            "fixed_pattern": [
+                1,
+                3
+            ],
+            "id": 3,
+            "time_windows": [
+                {
+                    "early": 0,
+                    "late": 0
+                },
+                {
+                    "early": 420,
+                    "late": 660
+                },
+                {
+                    "early": 120,
+                    "late": 660
+                },
+                {
+                    "early": 120,
+                    "late": 420
+                },
+                {
+                    "early": 120,
+                    "late": 660
+                },
+                {
+                    "early": 120,
+                    "late": 420
+                },
+                {
+                    "early": 0,
+                    "late": 0
+                }
+            ]
+        },
+        {
+            "coords": {
+                "lat": 50.71991,
+                "lon": 4.39773
+            },
+            "demand": 5,
+            "dur": 25,
+            "fixed_pattern": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "id": 4,
+            "time_windows": [
+                {
+                    "early": 0,
+                    "late": 0
+                },
+                {
+                    "early": 600,
+                    "late": 840
+                },
+                {
+                    "early": 420,
+                    "late": 660
+                },
+                {
+                    "early": 120,
+                    "late": 660
+                },
+                {
+                    "early": 600,
+                    "late": 840
+                },
+                {
+                    "early": 120,
+                    "late": 660
+                },
+                {
+                    "early": 0,
+                    "late": 0
+                }
+            ]
+        }
+    ],
+    "instance_name": "toy_10_7",
+    "max_route_dur": 480,
+    "num_periods": 7,
+    "times": [
+        [
+            0,
+            17,
+            37,
+            24,
+            34,
+            66,
+            52,
+            82,
+            22,
+            21,
+            36
+        ],
+        [
+            16,
+            0,
+            49,
+            36,
+            31,
+            71,
+            50,
+            86,
+            11,
+            22,
+            48
+        ],
+        [
+            35,
+            47,
+            0,
+            53,
+            64,
+            54,
+            66,
+            110,
+            51,
+            52,
+            65
+        ],
+        [
+            25,
+            37,
+            54,
+            0,
+            33,
+            84,
+            68,
+            79,
+            42,
+            36,
+            31
+        ],
+        [
+            33,
+            30,
+            64,
+            31,
+            0,
+            80,
+            43,
+            69,
+            24,
+            28,
+            36
+        ],
+        [
+            63,
+            74,
+            51,
+            81,
+            82,
+            0,
+            55,
+            124,
+            63,
+            80,
+            93
+        ],
+        [
+            49,
+            46,
+            63,
+            64,
+            39,
+            51,
+            0,
+            75,
+            39,
+            51,
+            68
+        ],
+        [
+            82,
+            87,
+            111,
+            78,
+            70,
+            123,
+            79,
+            0,
+            80,
+            79,
+            81
+        ],
+        [
+            23,
+            11,
+            52,
+            42,
+            24,
+            61,
+            43,
+            80,
+            0,
+            25,
+            53
+        ],
+        [
+            21,
+            22,
+            53,
+            34,
+            28,
+            80,
+            54,
+            79,
+            24,
+            0,
+            38
+        ],
+        [
+            37,
+            48,
+            66,
+            33,
+            37,
+            95,
+            73,
+            81,
+            53,
+            40,
+            0
+        ]
+    ]
+}

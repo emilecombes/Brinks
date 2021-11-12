@@ -1,0 +1,113 @@
+{
+    "cost": 913.8,
+    "instance_name": "toy_10_7",
+    "periods": [
+        {
+            "cost": 0.0,
+            "id": 0,
+            "routes": []
+        },
+        {
+            "cost": 313.4,
+            "id": 1,
+            "routes": [
+                {
+                    "departure_time": 472,
+                    "visits": [
+                        0,
+                        3,
+                        7,
+                        4,
+                        1
+                    ]
+                },
+                {
+                    "departure_time": 345,
+                    "visits": [
+                        0,
+                        8,
+                        6,
+                        2,
+                        5
+                    ]
+                }
+            ]
+        },
+        {
+            "cost": 98.8,
+            "id": 2,
+            "routes": [
+                {
+                    "departure_time": 564,
+                    "visits": [
+                        0,
+                        10,
+                        4
+                    ]
+                },
+                {
+                    "departure_time": 99,
+                    "visits": [
+                        0,
+                        9
+                    ]
+                }
+            ]
+        },
+        {
+            "cost": 119.1,
+            "id": 3,
+            "routes": [
+                {
+                    "departure_time": 103,
+                    "visits": [
+                        0,
+                        1,
+                        4,
+                        3,
+                        2
+                    ]
+                }
+            ]
+        },
+        {
+            "cost": 196.5,
+            "id": 4,
+            "routes": [
+                {
+                    "departure_time": 354,
+                    "visits": [
+                        0,
+                        5,
+                        8,
+                        7,
+                        4
+                    ]
+                }
+            ]
+        },
+        {
+            "cost": 186.0,
+            "id": 5,
+            "routes": [
+                {
+                    "departure_time": 316,
+                    "visits": [
+                        0,
+                        1,
+                        6,
+                        4,
+                        10,
+                        9,
+                        2
+                    ]
+                }
+            ]
+        },
+        {
+            "cost": 0.0,
+            "id": 6,
+            "routes": []
+        }
+    ]
+}
