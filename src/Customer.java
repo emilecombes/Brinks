@@ -1,9 +1,7 @@
-public abstract class Customer {
-  private int id;
-  private int demand;
-  private int duration;
+import java.util.List;
 
-  public Customer(int id, int demand, int duration){
-
-  }
+public class Customer {
+    Coordinaat coords;
+    int id;
+    List<TimeWindow> time_windows;
 }
