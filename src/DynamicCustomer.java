@@ -4,6 +4,8 @@ public class DynamicCustomer extends Customer{
 
   int demand;
   int dur;
+  int dyn_fvisit;
+  int dyn_nvisit;
 
 
 
@@ -14,6 +16,22 @@ public class DynamicCustomer extends Customer{
     this.dur = dur;
     this.id = id;
     this.time_windows = time_windows;
+  }
+
+  public int getDyn_fvisit() {
+    return dyn_fvisit;
+  }
+
+  public void setDyn_fvisit(int dyn_fvisit) {
+    this.dyn_fvisit = dyn_fvisit;
+  }
+
+  public int getDyn_nvisit() {
+    return dyn_nvisit;
+  }
+
+  public void setDyn_nvisit(int dyn_nvisit) {
+    this.dyn_nvisit = dyn_nvisit;
   }
 
   @Override

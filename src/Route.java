@@ -24,9 +24,9 @@ public class Route {
     return false;
   }
 
-    //EDT (ci) = max(EDT (ci−1) + T T (ci−1, ci), StartT Wi) + STi
+   /* //EDT (ci) = max(EDT (ci−1) + T T (ci−1, ci), StartT Wi) + STi
 
-/*
+
     public int[] calculateEarliestDepartureTime() {
       int[] EDT = new int[route.size()];
       EDT[0]=0;
@@ -45,7 +45,7 @@ public class Route {
       return solution;
     }
 
-
 */
+
 
 }
