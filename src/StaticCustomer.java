@@ -5,12 +5,12 @@ public class StaticCustomer extends Customer{
 //    super(id, demand, duration);
 //  }
 
-    Coordinaat coords;
+
     int demand;
     int dur;
     List<Integer> fixed_pattern;
-    int id;
-    List<TimeWindow> time_windows;
+
+
 
     public StaticCustomer(Coordinaat coords, int demand, int dur, List<Integer> fixed_pattern, int id, List<TimeWindow> time_windows) {
         this.coords = coords;

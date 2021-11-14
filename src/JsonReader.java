@@ -17,10 +17,10 @@ public class JsonReader {
         return g.fromJson(json, Input.class);
     }
 
-//    public static void uitlezen(Object o, String name) throws IOException {
-//        String json = g.toJson(o);
-//        Path pad = Path.of("out/output/" + name + ".json");
-//        Files.createFile(pad);
-//        Files.write(pad, Collections.singleton(json));
-//    }
+    public static void uitlezen(Object o, String name) throws IOException {
+        String json = g.toJson(o);
+       Path pad = Path.of("out/" + name + ".json");
+       Files.createFile(pad);
+     Files.write(pad, Collections.singleton(json));
+   }
 }

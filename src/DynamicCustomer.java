@@ -1,11 +1,11 @@
 import java.util.List;
 
 public class DynamicCustomer extends Customer{
-  Coordinaat coords;
+
   int demand;
   int dur;
-  int id;
-  List<TimeWindow> time_windows;
+
+
 
   public DynamicCustomer(Coordinaat coords, int demand, int dur, int id, List<TimeWindow> time_windows) {
     super();
