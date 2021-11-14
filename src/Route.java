@@ -6,6 +6,12 @@ public class Route {
   private int startTime;
   private int endTime;
 
+  public Route(List<Customer> route, int startTime, int endTime) {
+    this.route = route;
+    this.startTime = startTime;
+    this.endTime = endTime;
+  }
+
   public Route(){
     route = new LinkedList<>();
   }
