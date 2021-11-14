@@ -24,13 +24,17 @@ public class Main {
         daysWithCustToServe[dc.getDyn_fvisit()].add(dc);
 
         //TOEVOEGEN ANDERE BEZOEKEN(MAX AANTAL OPEENVOLGENDE DAGEN GEBRUIKEN)
-        for (int i = dc.getDyn_fvisit(); i<input.getNum_periods();i++) {
-
-          if ((i-dc.getDyn_fvisit())%(dc.getDyn_nvisit()+1)==0) {
+        //CHECK OF KLANT OPEN IS DIE DAG
+        for (int i = dc.getDyn_fvisit(); i<input.getNum_periods();i=i+dc.getDyn_nvisit()+1) {
+            while (dc.getTime_windows().get(i).late==0) {
+              i--;
+            }
             daysWithCustToServe[i].add(dc);
+
+            }
           }
-        }
-      }
+
+
 
 
 
@@ -41,7 +45,13 @@ public class Main {
         }
       }
 
+      Scheduler scheduler = new Scheduler(input);
+      List<Day> schedule = new LinkedList<>();
 
+    for (int i = 0 ;i<input.getNum_periods();i++) {
+      Day day = scheduler.scheduleDay(i,daysWithCustToServe[i]);
+      schedule.add(day);
+    }
 
 
 

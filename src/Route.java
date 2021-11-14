@@ -12,6 +12,30 @@ public class Route {
     this.endTime = endTime;
   }
 
+  public List<Customer> getRoute() {
+    return route;
+  }
+
+  public void setRoute(List<Customer> route) {
+    this.route = route;
+  }
+
+  public int getStartTime() {
+    return startTime;
+  }
+
+  public void setStartTime(int startTime) {
+    this.startTime = startTime;
+  }
+
+  public int getEndTime() {
+    return endTime;
+  }
+
+  public void setEndTime(int endTime) {
+    this.endTime = endTime;
+  }
+
   public Route(){
     route = new LinkedList<>();
   }
@@ -19,6 +43,8 @@ public class Route {
   public void addCustomer(Customer c){
     route.add(c);
   }
+
+
 
   public boolean isFeasibleWith(Customer c){
     return false;
