@@ -1,25 +1,10 @@
 import java.util.List;
 
-public class Customer extends Location {
+public class Location {
 
-    int demand;
-    int dur;
-
-    public int getDemand() {
-        return demand;
-    }
-
-    public void setDemand(int demand) {
-        this.demand = demand;
-    }
-
-    public int getDur() {
-        return dur;
-    }
-
-    public void setDur(int dur) {
-        this.dur = dur;
-    }
+    Coordinaat coords;
+    int id;
+    List<TimeWindow> time_windows;
 
     public Coordinaat getCoords() {
         return coords;

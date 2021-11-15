@@ -7,7 +7,7 @@ import java.util.Set;
 public class Main {
   public static void main(String[] args){
     try {
-      Input input = JsonReader.inlezen();
+      Input input = JsonParser.inlezen();
       System.out.println(input);
 
 
@@ -52,6 +52,8 @@ public class Main {
       Day day = scheduler.scheduleDay(i,daysWithCustToServe[i]);
       schedule.add(day);
     }
+    Output output = new Output(input.getInstance_name(),0,schedule);
+    JsonParser.uitlezen(output);
 
 
 

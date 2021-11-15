@@ -2,31 +2,41 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Route {
-  private List<Customer> route;
-  private int startTime;
+  private List<Location> visits;
+  private int departure_time;
   private int endTime;
+  private int capacity;
 
-  public Route(List<Customer> route, int startTime, int endTime) {
-    this.route = route;
-    this.startTime = startTime;
-    this.endTime = endTime;
+  public int getDeparture_time() {
+    return departure_time;
   }
 
-  public List<Customer> getRoute() {
-    return route;
+  public void setDeparture_time(int departure_time) {
+    this.departure_time = departure_time;
   }
 
-  public void setRoute(List<Customer> route) {
-    this.route = route;
+  public Route(){
+    visits = new LinkedList<>();
+    capacity = 0;
   }
 
-  public int getStartTime() {
-    return startTime;
+  public List<Location> getVisits() {
+    return visits;
   }
 
-  public void setStartTime(int startTime) {
-    this.startTime = startTime;
+  public void setVisits(List<Location> visits) {
+    this.visits = visits;
   }
+
+  public int getCapacity() {
+    return capacity;
+  }
+
+  public void setCapacity(int capacity) {
+    this.capacity = capacity;
+  }
+
+
 
   public int getEndTime() {
     return endTime;
@@ -36,12 +46,10 @@ public class Route {
     this.endTime = endTime;
   }
 
-  public Route(){
-    route = new LinkedList<>();
-  }
+
 
   public void addCustomer(Customer c){
-    route.add(c);
+    visits.add(c);
   }
 
 

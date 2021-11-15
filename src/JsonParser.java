@@ -5,7 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collections;
 
-public class JsonReader {
+public class JsonParser {
     private static Gson g = new Gson();
 
     public static Input inlezen() throws IOException {
@@ -17,9 +17,9 @@ public class JsonReader {
         return g.fromJson(json, Input.class);
     }
 
-    public static void uitlezen(Object o, String name) throws IOException {
+    public static void uitlezen(Output o) throws IOException {
         String json = g.toJson(o);
-       Path pad = Path.of("out/" + name + ".json");
+       Path pad = Path.of("out/" + o.getInstance_name() + ".json");
        Files.createFile(pad);
      Files.write(pad, Collections.singleton(json));
    }

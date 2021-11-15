@@ -2,8 +2,7 @@ import java.util.List;
 
 public class DynamicCustomer extends Customer{
 
-  int demand;
-  int dur;
+
   int dyn_fvisit;
   int dyn_nvisit;
 

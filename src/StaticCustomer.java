@@ -6,8 +6,7 @@ public class StaticCustomer extends Customer{
 //  }
 
 
-    int demand;
-    int dur;
+
     List<Integer> fixed_pattern;
 
 
