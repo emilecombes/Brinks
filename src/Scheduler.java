@@ -56,6 +56,7 @@ public class Scheduler {
     public List<Route> scheduleRoutesForDepot(Depot depot, Set<Customer> customers,Day day) {
         //MAKE ROUTE BY ADDING NEW CLOSEST LOCATION, MAKE NEW ROUTE IF FEASABILITY IS BROKEN
         //FINISH WHEN ALL LOCATIONS ARE SERVED
+        System.out.println("Day  -----------" + day.id);
         List<Route> routes = new LinkedList<>();
 
         //1. CHECK DURATION OF ROUTE
@@ -71,57 +72,92 @@ public class Scheduler {
 
 
         while (!customers.isEmpty()) {
-            Customer newCustomer = getClosest(newRoute.getVisits().get(newRoute.getVisits().size()-2), customers);
+            Customer newCustomer = getClosest(newRoute.getVisits().get(newRoute.getVisits().size()-1), customers);
             customers.remove(newCustomer);
 
             //TODO isFesibleWith
             if (isFeasibleWith(newRoute,newCustomer, day.id)) {
-                newRoute.getVisits().add(newRoute.getVisits().size()-2,newCustomer);
+
+                newRoute.getVisits().add(newRoute.getVisits().size()-1,newCustomer);
+                updateRoute(newRoute,day.id);
             } else {
+
                 routes.add(newRoute);
                 newRoute = new Route();
 
                 //add start
                 newRoute.addCustomer(depot);
-
                 //add end
                 newRoute.addCustomer(depot);
+
+                newRoute.getVisits().add(newRoute.getVisits().size()-1,newCustomer);
             }
 
         }
+        routes.add(newRoute);
 
         return routes;
     }
 
     public boolean isFeasibleWith(Route route, Customer customer, int dayId) {
+
         route.getVisits().add(route.getVisits().size()-1,customer);
+        System.out.println("before adding customer duration : " + route.getDuration() );
+        updateRoute(route,dayId);
+        System.out.println("after adding customer duration: " +route.getDuration());
+        for (Location c : route.getVisits()) {
+            System.out.println(c);
+        }
         boolean feasible = true;
         int maxCapacity = input.getCapacity();
 
 
         //check if maxcapacity is overschreden
-
-
-        if (getCapacity(route)>maxCapacity) {
+        if (updateCapacity(route)>maxCapacity) {
             feasible=false;
-            route.setCapacity(route.getCapacity()-customer.getDemand());
-            route.getVisits().remove(customer);
+
         }
 
 
         //check if route duration is to long
-        if (input.max_route_dur<getDuration(route,dayId)) {
+        if (input.max_route_dur< updateDuration(route,dayId)) {
             feasible=false;
-            route.setCapacity(route.getCapacity()-customer.getDemand());
-            route.getVisits().remove(customer);
         }
+
+        //Check if all starting times are within the range
+        int[] EarliestDepartureTimes = calculateEDT(route,dayId);
+        int[] LatestStartTimes = calculateLST(route,dayId,EarliestDepartureTimes[EarliestDepartureTimes.length-1]);
+        int [] durations = new int[route.getVisits().size()];
+
+        for (int i =1 ; i<EarliestDepartureTimes.length-1;i++) {
+            if (route.getVisits().get(i) instanceof Customer) {
+                durations[i] = ((Customer) route.getVisits().get(i)).getDur();
+            }
+        }
+
+        for ( int i =1 ; i< EarliestDepartureTimes.length;i++) {
+            if (EarliestDepartureTimes[i-1]+durations[i]+input.getTimes().get(route.getVisits().get(i-1).getId()).get(route.getVisits().get(i).getId())>LatestStartTimes[i]) {
+                feasible=false;
+            }
+        }
+
+
+
+        route.getVisits().remove(customer);
+        updateRoute(route,dayId);
+
 
 
         return feasible;
     }
 
 
-    public int getCapacity(Route route) {
+    public void updateRoute(Route route, int dayId) {
+        updateCapacity(route);
+        updateDuration(route,dayId) ;
+    }
+
+    public int updateCapacity(Route route) {
         for (int i = 1; i<route.getVisits().size()-1; i++) {
                 route.setCapacity(route.getCapacity()+ ((Customer) route.getVisits().get(i)).getDemand());
         }
@@ -129,12 +165,13 @@ public class Scheduler {
     }
 
 
-    public int getDuration(Route route, int dayId) {
+    public int updateDuration(Route route, int dayId) {
         int[] EarliestDepartureTimes = calculateEDT(route,dayId);
-        int[] LatestDepartureTimes = calculateLDT(route,dayId);
-        route.setDeparture_time(LatestDepartureTimes[0]);
+        int[] LatestStartTimes = calculateLST(route,dayId,EarliestDepartureTimes[EarliestDepartureTimes.length-1]);
+        route.setDeparture_time(LatestStartTimes[0]);
+        int duration = EarliestDepartureTimes[EarliestDepartureTimes.length-1] - LatestStartTimes[0];
 
-        int duration = EarliestDepartureTimes[EarliestDepartureTimes.length-1] - LatestDepartureTimes[0];
+        route.setDuration(duration);
         return duration;
     }
 
@@ -163,24 +200,53 @@ public class Scheduler {
 
 
 
-    public int[] calculateLDT(Route route,int dayId) {
-        int [] LDT = new int[route.getVisits().size()];
+    public int[] calculateLST(Route route,int dayId, int startValue) {
+        int [] LST = new int[route.getVisits().size()];
+        LST[route.getVisits().size()-1] = startValue;
 
-        for (int i = LDT.length-1 ; i==0;i--) {
+        for (int i = LST.length-2 ; i>-1;i--) {
             if (route.getVisits().get(i) instanceof StaticCustomer) {
                 StaticCustomer customer = (StaticCustomer) route.getVisits().get(i);
-                int TT = input.getTimes().get(route.getVisits().get(i + 1).getId()).get(customer.getId());
-                LDT[i] = Math.min(LDT[i + 1] + TT - customer.getDur(), customer.getTime_windows().get(dayId).getLate());
+                int TT = input.getTimes().get(customer.getId()).get(route.getVisits().get(i+1).getId());
+                LST[i] = Math.min(LST[i + 1] - TT - customer.getDur(), customer.getTime_windows().get(dayId).getLate());
             } else if (route.getVisits().get(i) instanceof DynamicCustomer) {
                 DynamicCustomer customer = ((DynamicCustomer) route.getVisits().get(i));
-                int TT = input.getTimes().get(route.getVisits().get(i + 1).getId()).get(customer.getId());
-                LDT[i] = Math.min(LDT[i + 1] + TT - customer.getDur(), customer.getTime_windows().get(dayId).getLate());
+                int TT = input.getTimes().get(customer.getId()).get(route.getVisits().get(i+1).getId());                LST[i] = Math.min(LST[i + 1] - TT - customer.getDur(), customer.getTime_windows().get(dayId).getLate());
             } else if (route.getVisits().get(i) instanceof Depot) {
                 Depot depot = (Depot) route.getVisits().get(i);
-                int TT = input.getTimes().get(route.getVisits().get(i + 1).getId()).get(depot.getId());
-                LDT[i] = Math.min(LDT[i + 1] + TT, depot.getTime_windows().get(dayId).getLate());
+                int TT = input.getTimes().get(depot.getId()).get(route.getVisits().get(i+1).getId());
+                LST[i] = Math.min(LST[i + 1] - TT, depot.getTime_windows().get(dayId).getLate());
+
             }
         }
-        return LDT;
+        return LST;
+    }
+
+    public float calculateCostPerRoute(Route route) {
+        int duration = route.getDuration();
+        float serviceCost = duration*input.getCost_wage_minute();
+        int distance = 0;
+        for (int i = 1 ; i <route.getVisits().size();i++) {
+            distance += input.getTimes().get(route.getVisits().get(i-1).getId()).get(route.getVisits().get(i).getId());
+        }
+        float fuelCost = distance*input.getCost_fuel_minute();
+        return  serviceCost+fuelCost;
+
+    }
+
+    public float calculateCostPerDay(Day day) {
+        float cost = 0;
+        for (Route route : day.getRoutes()) {
+            cost+=calculateCostPerRoute(route);
+        }
+        return cost;
+    }
+
+    public float calculateTotalCost(List<Day> days) {
+        float cost = 0;
+        for (Day day : days) {
+            cost+=calculateCostPerDay(day);
+        }
+        return cost;
     }
 }

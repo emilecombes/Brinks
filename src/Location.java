@@ -29,4 +29,12 @@ public class Location {
     public void setTime_windows(List<TimeWindow> time_windows) {
         this.time_windows = time_windows;
     }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "coords=" + coords +
+                ", id=" + id +
+                '}';
+    }
 }

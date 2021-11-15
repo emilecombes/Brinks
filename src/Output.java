@@ -1,14 +1,31 @@
+import java.util.LinkedList;
 import java.util.List;
 
 public class Output {
     String instance_name;
     float cost;
-    List<Day> periods;
+    List<OutputPeriod> periods;
 
-
-    public Output(String instance_name, float cost, List<Day> periods) {
+    public Output(String instance_name, float cost) {
         this.instance_name = instance_name;
         this.cost = cost;
+    }
+
+
+    public void parseForOutput(List<Day> schedule) {
+        periods = new LinkedList<>();
+        for (Day day : schedule) {
+            OutputPeriod period = new OutputPeriod(day.id);
+            period.addRoutes(day.getRoutes());
+            periods.add(period);
+        }
+    }
+
+    public List<OutputPeriod> getPeriods() {
+        return periods;
+    }
+
+    public void setPeriods(List<OutputPeriod> periods) {
         this.periods = periods;
     }
 
@@ -28,11 +45,5 @@ public class Output {
         this.cost = cost;
     }
 
-    public List<Day> getPeriods() {
-        return periods;
-    }
 
-    public void setPeriods(List<Day> periods) {
-        this.periods = periods;
-    }
 }

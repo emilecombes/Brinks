@@ -52,10 +52,12 @@ public class Main {
       Day day = scheduler.scheduleDay(i,daysWithCustToServe[i]);
       schedule.add(day);
     }
-    Output output = new Output(input.getInstance_name(),0,schedule);
+
+    Output output = new Output(input.getInstance_name(),0);
+    float cost = scheduler.calculateTotalCost(schedule);
+    output.setCost(cost);
+    output.parseForOutput(schedule);
     JsonParser.uitlezen(output);
-
-
 
 
     } catch (IOException e) {
