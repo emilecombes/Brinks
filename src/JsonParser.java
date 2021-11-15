@@ -10,7 +10,7 @@ public class JsonParser {
 
     public static Input inlezen() throws IOException {
         String map = "toy sets";
-        String file = "toy_20_14";
+        String file = "toy_100_56";
         Path path = Path.of(map + "/" + file + ".json");
 
         String json = Files.readString(path);

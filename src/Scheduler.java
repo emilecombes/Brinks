@@ -94,6 +94,7 @@ public class Scheduler {
             }
 
         }
+        updateRoute(newRoute,day.id);
         routes.add(newRoute);
 
         return routes;
@@ -181,12 +182,8 @@ public class Scheduler {
 
 
         for (int i = 1 ; i<EDT.length;i++) {
-            if (route.getVisits().get(i) instanceof StaticCustomer ) {
-                StaticCustomer customer = (StaticCustomer) route.getVisits().get(i);
-                int TT = input.getTimes().get(route.getVisits().get(i-1).getId()).get(customer.getId());
-                EDT[i] = Math.max(EDT[i-1]+ TT ,  customer.getTime_windows().get(dayId).getEarly()) + customer.getDur();
-            } else if (route.getVisits().get(i) instanceof  DynamicCustomer) {
-                DynamicCustomer customer = ((DynamicCustomer)  route.getVisits().get(i));
+            if (route.getVisits().get(i) instanceof Customer ) {
+                Customer customer = (Customer) route.getVisits().get(i);
                 int TT = input.getTimes().get(route.getVisits().get(i-1).getId()).get(customer.getId());
                 EDT[i] = Math.max(EDT[i-1]+ TT ,  customer.getTime_windows().get(dayId).getEarly()) + customer.getDur();
             } else if (route.getVisits().get(i) instanceof Depot) {
@@ -205,13 +202,10 @@ public class Scheduler {
         LST[route.getVisits().size()-1] = startValue;
 
         for (int i = LST.length-2 ; i>-1;i--) {
-            if (route.getVisits().get(i) instanceof StaticCustomer) {
-                StaticCustomer customer = (StaticCustomer) route.getVisits().get(i);
+            if (route.getVisits().get(i) instanceof Customer) {
+                Customer customer = (Customer) route.getVisits().get(i);
                 int TT = input.getTimes().get(customer.getId()).get(route.getVisits().get(i+1).getId());
                 LST[i] = Math.min(LST[i + 1] - TT - customer.getDur(), customer.getTime_windows().get(dayId).getLate());
-            } else if (route.getVisits().get(i) instanceof DynamicCustomer) {
-                DynamicCustomer customer = ((DynamicCustomer) route.getVisits().get(i));
-                int TT = input.getTimes().get(customer.getId()).get(route.getVisits().get(i+1).getId());                LST[i] = Math.min(LST[i + 1] - TT - customer.getDur(), customer.getTime_windows().get(dayId).getLate());
             } else if (route.getVisits().get(i) instanceof Depot) {
                 Depot depot = (Depot) route.getVisits().get(i);
                 int TT = input.getTimes().get(depot.getId()).get(route.getVisits().get(i+1).getId());
