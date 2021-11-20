@@ -9,8 +9,8 @@ public class JsonParser {
     private static Gson g = new Gson();
 
     public static Input inlezen() throws IOException {
-        String map = "toy sets";
-        String file = "toy_100_56";
+        String map = "real_instances";
+        String file = "B_f_500_56";
         Path path = Path.of(map + "/" + file + ".json");
 
         String json = Files.readString(path);
