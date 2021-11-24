@@ -1,9 +1,5 @@
 package Model;
 
-import Model.Coordinaat;
-import Model.Customer;
-import Model.TimeWindow;
-
 import java.util.List;
 
 public class DynamicCustomer extends Customer {
@@ -53,12 +49,12 @@ public class DynamicCustomer extends Customer {
     this.demand = demand;
   }
 
-    public int getDur() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDur(int dur) {
-        this.duration = dur;
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
 
   @Override

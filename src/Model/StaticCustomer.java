@@ -1,8 +1,5 @@
 package Model;
 
-import Model.Coordinaat;
-import Model.Customer;
-
 import java.util.List;
 
 public class StaticCustomer extends Customer {
@@ -35,12 +32,12 @@ public class StaticCustomer extends Customer {
         this.demand = demand;
     }
 
-    public int getDur() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDur(int dur) {
-        this.duration = dur;
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
 
     public List<Integer> getFixed_pattern() {

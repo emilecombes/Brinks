@@ -1,6 +1,6 @@
 package Optimisation;
 
-import Input.Input;
+import Input.*;
 import Model.*;
 
 import java.util.*;
@@ -9,8 +9,8 @@ public class Scheduler {
     Input input;
 
 
-    public Scheduler(Input input) {
-        this.input = input;
+    public Scheduler(Input i) {
+        input = i;
     }
 
     public Day scheduleDay(int id, Set<Customer> customers) {
@@ -104,7 +104,7 @@ public class Scheduler {
         updateRoute(route, dayId);
 
         boolean feasible = true;
-        int maxCapacity = input.getCapacity();
+        int maxCapacity = input.capacity;
 
 
         //check if maxcapacity is overschreden
@@ -125,7 +125,7 @@ public class Scheduler {
 
         for (int i = 1; i < EarliestDepartureTimes.length - 1; i++) {
             if (route.getVisits().get(i) instanceof Customer) {
-                durations[i] = ((Customer) route.getVisits().get(i)).getDur();
+                durations[i] = ((Customer) route.getVisits().get(i)).getDuration();
             }
         }
 
@@ -143,7 +143,6 @@ public class Scheduler {
     public void updateRoute(Route route, int dayId) {
         updateCapacity(route);
         updateDuration(route, dayId);
-        route.calculateWaitTimes();
     }
 
     public int updateCapacity(Route route) {
@@ -156,9 +155,7 @@ public class Scheduler {
 
     public int updateDuration(Route route, int dayId) {
         int[] EarliestDepartureTimes = calculateEDT(route, dayId);
-        route.setEarliestDepartureTimes(EarliestDepartureTimes);
         int[] LatestStartTimes = calculateLST(route, dayId, EarliestDepartureTimes[EarliestDepartureTimes.length - 1]);
-        route.setLatestStartTimes(LatestStartTimes);
         route.setDeparture_time(LatestStartTimes[0]);
         int duration = EarliestDepartureTimes[EarliestDepartureTimes.length - 1] - LatestStartTimes[0];
 
@@ -174,7 +171,7 @@ public class Scheduler {
             if (route.getVisits().get(i) instanceof Customer) {
                 Customer customer = (Customer) route.getVisits().get(i);
                 int TT = input.times.get(route.getVisits().get(i - 1).getId()).get(customer.getId());
-                EDT[i] = Math.max(EDT[i - 1] + TT, customer.getTime_windows().get(dayId).getEarly()) + customer.getDur();
+                EDT[i] = Math.max(EDT[i - 1] + TT, customer.getTime_windows().get(dayId).getEarly()) + customer.getDuration();
             } else if (route.getVisits().get(i) instanceof Depot) {
                 Depot depot = (Depot) route.getVisits().get(i);
                 int TT = input.times.get(route.getVisits().get(i - 1).getId()).get(depot.getId());
@@ -193,7 +190,7 @@ public class Scheduler {
             if (route.getVisits().get(i) instanceof Customer) {
                 Customer customer = (Customer) route.getVisits().get(i);
                 int TT = input.times.get(customer.getId()).get(route.getVisits().get(i + 1).getId());
-                LST[i] = Math.min(LST[i + 1] - TT - customer.getDur(), customer.getTime_windows().get(dayId).getLate());
+                LST[i] = Math.min(LST[i + 1] - TT - customer.getDuration(), customer.getTime_windows().get(dayId).getLate());
             } else if (route.getVisits().get(i) instanceof Depot) {
                 Depot depot = (Depot) route.getVisits().get(i);
                 int TT = input.times.get(depot.getId()).get(route.getVisits().get(i + 1).getId());
@@ -211,7 +208,7 @@ public class Scheduler {
         for (int i = 1; i < route.getVisits().size(); i++) {
             distance += input.times.get(route.getVisits().get(i - 1).getId()).get(route.getVisits().get(i).getId());
         }
-        float fuelCost = distance * input.;
+        float fuelCost = distance * input.cost_fuel_minute;
         return serviceCost + fuelCost;
 
     }

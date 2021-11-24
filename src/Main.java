@@ -1,11 +1,7 @@
-import Input.Input;
-import Model.Customer;
-import Model.Day;
-import Model.DynamicCustomer;
-import Model.StaticCustomer;
-import Optimisation.Feasibility;
-import Optimisation.Scheduler;
-import Output.Output;
+import Input.*;
+import Model.*;
+import Optimisation.*;
+import Output.*;
 
 import java.io.IOException;
 import java.util.HashSet;
@@ -14,16 +10,15 @@ import java.util.List;
 import java.util.Set;
 
 public class Main {
-  public static void main(String[] args){
+  public static void main(String[] args) {
     try {
-      Input input = JsonParser.inlezen();
+      Input input = JsonParser.read();
       System.out.println(input);
 
 
-
       //Creeeren van array met set customers to server
-      Set<Customer>[] daysWithCustToServe = new Set[input.getNum_periods()];
-      for (int i=0 ; i<daysWithCustToServe.length;i++) {
+      Set[] daysWithCustToServe = new Set[input.getNum_periods()];
+      for (int i = 0; i < daysWithCustToServe.length; i++) {
         daysWithCustToServe[i] = new HashSet<>();
       }
 
@@ -34,22 +29,17 @@ public class Main {
 
         //TOEVOEGEN ANDERE BEZOEKEN(MAX AANTAL OPEENVOLGENDE DAGEN GEBRUIKEN)
         //CHECK OF KLANT OPEN IS DIE DAG
-        for (int i = dc.getDyn_fvisit(); i<input.getNum_periods();i=i+dc.getDyn_nvisit()+1) {
-            while (dc.getTime_windows().get(i).late==0) {
-              i--;
-            }
-            daysWithCustToServe[i].add(dc);
-
-            }
+        for (int i = dc.getDyn_fvisit(); i < input.getNum_periods(); i = i + dc.getDyn_nvisit() + 1) {
+          while (dc.getTime_windows().get(i).getLate() == 0) {
+            i--;
           }
-
-
-
-
+          daysWithCustToServe[i].add(dc);
+        }
+      }
 
       //TOEVOEGEN VAN STATISCHD KLANTEN AAN DAG(VIA PARAMETERS)
       for (StaticCustomer sc : input.getFixed_customers()) {
-        for (int i = 0 ; i <sc.getFixed_pattern().size();i++) {
+        for (int i = 0; i < sc.getFixed_pattern().size(); i++) {
           daysWithCustToServe[sc.getFixed_pattern().get(i)].add(sc);
         }
       }
@@ -57,27 +47,20 @@ public class Main {
       Scheduler scheduler = new Scheduler(input);
       List<Day> schedule = new LinkedList<>();
 
-    for (int i = 0 ;i<input.getNum_periods();i++) {
-      Day day = scheduler.scheduleDay(i,daysWithCustToServe[i]);
-      schedule.add(day);
-    }
+      for (int i = 0; i < input.getNum_periods(); i++) {
+        Day day = scheduler.scheduleDay(i, daysWithCustToServe[i]);
+        schedule.add(day);
+      }
 
-    Output output = new Output(input.getInstance_name(),0);
-    float cost = scheduler.calculateTotalCost(schedule);
-    output.setCost(cost);
-    output.parseForOutput(schedule);
-    JsonParser.uitlezen(output);
+      Output output = new Output(input.getInstance_name(), 0);
+      float cost = scheduler.calculateTotalCost(schedule);
+      output.setCost(cost);
+      output.parseForOutput(schedule);
+      JsonParser.write(output);
 
 
     } catch (IOException e) {
       e.printStackTrace();
     }
-
-
-
-
-
-
-
   }
 }

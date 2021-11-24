@@ -12,8 +12,8 @@ import java.util.Collections;
 public class JsonParser {
     private static Gson g = new Gson();
 
-    public static Input inlezen() throws IOException {
-        String map = "real_instances";
+    public static Input read() throws IOException {
+        String map = "data/real_instances";
         String file = "B_f_500_56";
         Path path = Path.of(map + "/" + file + ".json");
 
@@ -21,7 +21,7 @@ public class JsonParser {
         return g.fromJson(json, Input.class);
     }
 
-    public static void uitlezen(Output o) throws IOException {
+    public static void write(Output o) throws IOException {
         String json = g.toJson(o);
         Path pad = Path.of("out/" + o.getInstance_name() + ".json");
         if(!Files.exists(pad)) {
