@@ -19,8 +19,10 @@ public class JsonParser {
 
     public static void uitlezen(Output o) throws IOException {
         String json = g.toJson(o);
-       Path pad = Path.of("out/" + o.getInstance_name() + ".json");
-       Files.createFile(pad);
-     Files.write(pad, Collections.singleton(json));
+        Path pad = Path.of("out/" + o.getInstance_name() + ".json");
+        if(!Files.exists(pad)) {
+            Files.createFile(pad);
+        }
+        Files.write(pad, Collections.singleton(json));
    }
 }

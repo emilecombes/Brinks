@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Scheduler {
+public class  Scheduler {
 
     Input input;
 
