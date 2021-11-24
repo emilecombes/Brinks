@@ -84,7 +84,6 @@ public class  Scheduler {
 
                 routes.add(newRoute);
                 newRoute = new Route();
-
                 //add start
                 newRoute.addCustomer(depot);
                 //add end
@@ -141,9 +140,6 @@ public class  Scheduler {
                 feasible=false;
             }
         }
-
-
-
         route.getVisits().remove(customer);
         updateRoute(route,dayId);
 
