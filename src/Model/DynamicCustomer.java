@@ -1,21 +1,23 @@
+package Model;
+
+import Model.Coordinaat;
+import Model.Customer;
+import Model.TimeWindow;
+
 import java.util.List;
 
-public class DynamicCustomer extends Customer{
+public class DynamicCustomer extends Customer {
+    int dyn_fvisit;
+    int dyn_nvisit;
 
-
-  int dyn_fvisit;
-  int dyn_nvisit;
-
-
-
-  public DynamicCustomer(Coordinaat coords, int demand, int dur, int id, List<TimeWindow> time_windows) {
-    super();
-    this.coords = coords;
-    this.demand = demand;
-    this.dur = dur;
-    this.id = id;
-    this.time_windows = time_windows;
-  }
+    public DynamicCustomer(Coordinaat coords, int demand, int dur, int id, List<TimeWindow> time_windows) {
+        super();
+        this.coords = coords;
+        this.demand = demand;
+        this.duration = dur;
+        this.id = id;
+        this.time_windows = time_windows;
+    }
 
   public int getDyn_fvisit() {
     return dyn_fvisit;
@@ -51,13 +53,13 @@ public class DynamicCustomer extends Customer{
     this.demand = demand;
   }
 
-  public int getDur() {
-    return dur;
-  }
+    public int getDur() {
+        return duration;
+    }
 
-  public void setDur(int dur) {
-    this.dur = dur;
-  }
+    public void setDur(int dur) {
+        this.duration = dur;
+    }
 
   @Override
   public int getId() {
@@ -74,12 +76,8 @@ public class DynamicCustomer extends Customer{
     return time_windows;
   }
 
-  @Override
-  public void setTime_windows(List<TimeWindow> time_windows) {
-    this.time_windows = time_windows;
-  }
-
-  //  public DynamicCustomer(int id, int demand, int duration) {
-//    super(id, demand, duration);
-//  }
+    @Override
+    public void setTime_windows(List<TimeWindow> time_windows) {
+        this.time_windows = time_windows;
+    }
 }

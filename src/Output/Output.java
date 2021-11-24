@@ -1,3 +1,7 @@
+package Output;
+
+import Model.Day;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,7 +19,7 @@ public class Output {
     public void parseForOutput(List<Day> schedule) {
         periods = new LinkedList<>();
         for (Day day : schedule) {
-            OutputPeriod period = new OutputPeriod(day.id);
+            OutputPeriod period = new OutputPeriod(day.getId());
             period.addRoutes(day.getRoutes());
             periods.add(period);
         }

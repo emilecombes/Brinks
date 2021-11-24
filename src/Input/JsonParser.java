@@ -1,3 +1,7 @@
+package Input;
+
+import Input.Input;
+import Output.Output;
 import com.google.gson.Gson;
 
 import java.io.IOException;

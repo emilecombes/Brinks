@@ -1,3 +1,7 @@
+package Output;
+
+import Model.Location;
+
 import java.util.List;
 
 public class OutputRoute {

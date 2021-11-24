@@ -1,3 +1,7 @@
+package Model;
+
+import Model.Coordinaat;
+
 import java.util.List;
 
 public class Location {
@@ -32,7 +36,7 @@ public class Location {
 
     @Override
     public String toString() {
-        return "Location{" +
+        return "Model.Location{" +
                 "coords=" + coords +
                 ", id=" + id +
                 '}';

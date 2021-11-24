@@ -1,46 +1,45 @@
+package Model;
+
+import Model.Coordinaat;
+import Model.Customer;
+
 import java.util.List;
 
-public class Customer extends Location {
+public class Depot extends Customer {
 
-    int demand;
-    int dur;
 
-    public int getDemand() {
-        return demand;
+    public Depot(Coordinaat coords, int id, List<TimeWindow> time_windows) {
+        this.coords = coords;
+        this.id = id;
+        this.time_windows = time_windows;
     }
 
-    public void setDemand(int demand) {
-        this.demand = demand;
-    }
-
-    public int getDur() {
-        return dur;
-    }
-
-    public void setDur(int dur) {
-        this.dur = dur;
-    }
-
+    @Override
     public Coordinaat getCoords() {
         return coords;
     }
 
+    @Override
     public void setCoords(Coordinaat coords) {
         this.coords = coords;
     }
 
+    @Override
     public int getId() {
         return id;
     }
 
+    @Override
     public void setId(int id) {
         this.id = id;
     }
 
+    @Override
     public List<TimeWindow> getTime_windows() {
         return time_windows;
     }
 
+    @Override
     public void setTime_windows(List<TimeWindow> time_windows) {
         this.time_windows = time_windows;
     }

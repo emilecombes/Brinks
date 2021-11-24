@@ -1,3 +1,5 @@
+package Model;
+
 public class TimeWindow {
     int early, late;
 
