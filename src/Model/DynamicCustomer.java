@@ -6,7 +6,7 @@ public class DynamicCustomer extends Customer {
     int dyn_fvisit;
     int dyn_nvisit;
 
-    public DynamicCustomer(Coordinaat coords, int demand, int dur, int id, List<TimeWindow> time_windows) {
+    public DynamicCustomer(Coordinate coords, int demand, int dur, int id, List<TimeWindow> time_windows) {
         super();
         this.coords = coords;
         this.demand = demand;
@@ -32,12 +32,12 @@ public class DynamicCustomer extends Customer {
   }
 
   @Override
-  public Coordinaat getCoords() {
+  public Coordinate getCoords() {
     return coords;
   }
 
   @Override
-  public void setCoords(Coordinaat coords) {
+  public void setCoords(Coordinate coords) {
     this.coords = coords;
   }
 

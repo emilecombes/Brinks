@@ -5,7 +5,7 @@ import java.util.List;
 public class StaticCustomer extends Customer {
     List<Integer> fixed_pattern;
 
-    public StaticCustomer(Coordinaat coords, int demand, int dur, List<Integer> fixed_pattern, int id, List<TimeWindow> time_windows) {
+    public StaticCustomer(Coordinate coords, int demand, int dur, List<Integer> fixed_pattern, int id, List<TimeWindow> time_windows) {
         this.coords = coords;
         this.demand = demand;
         this.duration = dur;
@@ -15,12 +15,12 @@ public class StaticCustomer extends Customer {
     }
 
     @Override
-    public Coordinaat getCoords() {
+    public Coordinate getCoords() {
         return coords;
     }
 
     @Override
-    public void setCoords(Coordinaat coords) {
+    public void setCoords(Coordinate coords) {
         this.coords = coords;
     }
 

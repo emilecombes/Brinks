@@ -1,9 +1,9 @@
 package Model;
 
-public class Coordinaat {
+public class Coordinate {
     float lat, lon;
 
-    public Coordinaat(float lat, float lon) {
+    public Coordinate(float lat, float lon) {
         this.lat = lat;
         this.lon = lon;
     }

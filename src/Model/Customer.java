@@ -23,11 +23,11 @@ public class Customer extends Location {
         this.duration = duration;
     }
 
-    public Coordinaat getCoords() {
+    public Coordinate getCoords() {
         return coords;
     }
 
-    public void setCoords(Coordinaat coords) {
+    public void setCoords(Coordinate coords) {
         this.coords = coords;
     }
 

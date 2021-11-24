@@ -47,6 +47,13 @@ public class Route {
     this.capacity = capacity;
   }
 
+  public Location getLocation(int i){
+    return visits.get(i);
+  }
+
+  public Customer getCustomer(int i){
+    return (Customer) visits.get(i);
+  }
 
 
   public int getEndTime() {
