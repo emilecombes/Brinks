@@ -1,7 +1,7 @@
+package Model;
+
 public class TimeWindow {
-    int early, late;
-
-
+    private int early, late;
 
     public TimeWindow(int early, int late) {
         this.early = early;

@@ -1,9 +1,11 @@
+package Model;
+
 import java.util.List;
 
 public class Customer extends Location {
 
     int demand;
-    int dur;
+    int duration;
 
     public int getDemand() {
         return demand;
@@ -13,19 +15,19 @@ public class Customer extends Location {
         this.demand = demand;
     }
 
-    public int getDur() {
-        return dur;
+    public int getDuration() {
+        return duration;
     }
 
-    public void setDur(int dur) {
-        this.dur = dur;
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
 
-    public Coordinaat getCoords() {
+    public Coordinate getCoords() {
         return coords;
     }
 
-    public void setCoords(Coordinaat coords) {
+    public void setCoords(Coordinate coords) {
         this.coords = coords;
     }
 

@@ -1,32 +1,26 @@
+package Model;
+
 import java.util.List;
 
-public class StaticCustomer extends Customer{
-//  public StaticCustomer(int id, int demand, int duration) {
-//    super(id, demand, duration);
-//  }
-
-
-
+public class StaticCustomer extends Customer {
     List<Integer> fixed_pattern;
 
-
-
-    public StaticCustomer(Coordinaat coords, int demand, int dur, List<Integer> fixed_pattern, int id, List<TimeWindow> time_windows) {
+    public StaticCustomer(Coordinate coords, int demand, int dur, List<Integer> fixed_pattern, int id, List<TimeWindow> time_windows) {
         this.coords = coords;
         this.demand = demand;
-        this.dur = dur;
+        this.duration = dur;
         this.fixed_pattern = fixed_pattern;
         this.id = id;
         this.time_windows = time_windows;
     }
 
     @Override
-    public Coordinaat getCoords() {
+    public Coordinate getCoords() {
         return coords;
     }
 
     @Override
-    public void setCoords(Coordinaat coords) {
+    public void setCoords(Coordinate coords) {
         this.coords = coords;
     }
 
@@ -38,12 +32,12 @@ public class StaticCustomer extends Customer{
         this.demand = demand;
     }
 
-    public int getDur() {
-        return dur;
+    public int getDuration() {
+        return duration;
     }
 
-    public void setDur(int dur) {
-        this.dur = dur;
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
 
     public List<Integer> getFixed_pattern() {

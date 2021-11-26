@@ -1,21 +1,23 @@
+package Model;
+
 import java.util.List;
 
 public class Depot extends Customer {
 
 
-    public Depot(Coordinaat coords, int id, List<TimeWindow> time_windows) {
+    public Depot(Coordinate coords, int id, List<TimeWindow> time_windows) {
         this.coords = coords;
         this.id = id;
         this.time_windows = time_windows;
     }
 
     @Override
-    public Coordinaat getCoords() {
+    public Coordinate getCoords() {
         return coords;
     }
 
     @Override
-    public void setCoords(Coordinaat coords) {
+    public void setCoords(Coordinate coords) {
         this.coords = coords;
     }
 
